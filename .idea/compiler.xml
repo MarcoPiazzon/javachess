@@ -9,8 +9,5 @@
         <module name="testFx" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="testFx" target="0" />
-    </bytecodeTargetLevel>
   </component>
 </project>

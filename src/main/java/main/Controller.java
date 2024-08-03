@@ -14,9 +14,12 @@ public class Controller implements Initializable {
     @FXML
     private void clickOnCell(MouseEvent event){
         Node source = (Node)event.getSource();
-        int colIndex = (GridPane.getColumnIndex((source)) == null ? -1 : (GridPane.getColumnIndex(source)));
-        int rowIndex = (GridPane.getRowIndex(source)) == null ? -1 : (GridPane.getRowIndex(source));
-        System.out.println("test print:" + colIndex + ", " + rowIndex);
+        int colIndex = (GridPane.getColumnIndex((source)) == null ? 0 : (GridPane.getColumnIndex(source)));
+        int rowIndex = (GridPane.getRowIndex(source)) == null ? 0 : (GridPane.getRowIndex(source));
+        // conv a to h
+        rowIndex = 7 - rowIndex;
+        // System.out.println("test print:" + colIndex + ", " + rowIndex);
+        System.out.println("cella: " + (char)('a' + colIndex) + rowIndex);
 
     }
 
