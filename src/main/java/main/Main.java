@@ -7,14 +7,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
-
+import java.util.Objects;
 
 public class Main extends Application {
     static Controller myControllerHandle;
 
     @Override
     public void start(Stage stage) throws IOException {
+        System.out.println("apro");
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
         Parent root = loader.load();
         myControllerHandle = loader.getController();
