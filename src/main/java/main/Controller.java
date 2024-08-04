@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import org.controlsfx.control.spreadsheet.Grid;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -109,5 +110,16 @@ public class Controller implements Initializable {
 
         p.setTranslateX(0);
         p.setTranslateY(0);
+
+        Node arrive = getNodeByRowColumnIndex(gridX,gridY,myGrid);
+        myGrid.getChildren().remove(arrive);
+
+    }
+
+    public static Node getNodeByRowColumnIndex(final int row, final int column, GridPane gridPane) {
+        return gridPane.getChildren().stream()
+                .filter(node -> gridPane.getRowIndex(node) == row)
+                .filter(node -> gridPane.getColumnIndex(node) == column)
+                .findFirst().get();
     }
 }
