@@ -72,8 +72,18 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this._board = new Board();
 
+        draggableMakerGrid = new DraggableMakerGrid(myAP.getPrefWidth(), myAP.getPrefHeight(), 64, myAP);
 
-       logger.info("prova");
+        // gridsize -> 64 (ncell) = (planeWidth / x) * (planeHeight / x)
+        gridHandler = new GridHandler(myAP.getPrefWidth(), myAP.getPrefHeight(), 64, myAP);
+        gridHandler.updateGrid();
+
+        // Black square
+        Component component = new Component(64, 0, 0);
+        myAP.getChildren().add(component.getRectangle());
+
+        draggableMakerGrid.makeDraggable(component);
+
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 // Get the image path for the piece at position (i, j)
@@ -96,7 +106,7 @@ public class Controller implements Initializable {
                             new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, false))));
 
                     sp.setOnMouseClicked(this::clickOnCell);
-                    draggableMaker.makeDraggable(sp);
+                    draggableMakerGrid.makeDraggable(sp);
                     myGrid.add(sp, j, i);
                 }
             }
