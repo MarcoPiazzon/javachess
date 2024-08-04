@@ -1,5 +1,9 @@
 package main;
 
+import component.Component;
+import component.DraggableMaker;
+import component.DraggableMakerGrid;
+import component.GridHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -20,7 +24,21 @@ import static utils.Constant.Pieces.Dimensions.*;
  */
 public class Controller implements Initializable {
     private Board _board;
+    private double planeWidth;
+    private double planeHeight;
+    private int tilesAcross;
+    private int tileAmount;
+    private int gridSize;
+    private int tilesDown;
     private static final Logger logger = Logger.getLogger(Controller.class.getName());
+
+    @FXML
+    private AnchorPane myAP;
+
+    private GridHandler gridHandler;
+    private DraggableMakerGrid draggableMakerGrid;
+    private DraggableMaker draggableMaker = new DraggableMaker();
+
 
     @FXML
     private GridPane myGrid;
@@ -53,7 +71,9 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this._board = new Board();
-        logger.info("prova");
+
+
+       logger.info("prova");
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 // Get the image path for the piece at position (i, j)
@@ -74,11 +94,12 @@ public class Controller implements Initializable {
                     StackPane sp = new StackPane();
                     sp.setBackground(new Background(new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
                             new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, false))));
+
                     sp.setOnMouseClicked(this::clickOnCell);
+                    draggableMaker.makeDraggable(sp);
                     myGrid.add(sp, j, i);
                 }
             }
         }
-
     }
 }

@@ -71,8 +71,8 @@ public class Constant {
          * Defines dimensions for chess pieces.
          */
         public static class Dimensions{
-            public static final int PIECE_WIDTH = 60;
-            public static final int PIECE_HEIGHT = 60;
+            public static final int PIECE_WIDTH = 75;
+            public static final int PIECE_HEIGHT = 75;
         }
     }
 }

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
+
+<AnchorPane fx:id="myAP" prefHeight="499.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
    <children>
-      <GridPane fx:id="myGrid" layoutX="152.0" layoutY="123.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="478.0">
+      <GridPane fx:id="myGrid" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="640.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -30,7 +31,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #739552;" />
             <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.rowIndex="1" />
             <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.rowIndex="2" />
             <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.rowIndex="3" />
@@ -97,4 +98,4 @@
          </children>
       </GridPane>
    </children>
-</Pane>
+</AnchorPane>
