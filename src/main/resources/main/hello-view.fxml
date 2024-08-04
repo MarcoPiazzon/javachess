@@ -30,70 +30,70 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.rowIndex="1" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.rowIndex="2" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.rowIndex="3" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.rowIndex="4" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.rowIndex="5" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.rowIndex="6" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.rowIndex="7" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="1" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="2" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="3" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="4" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="7" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="5" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="6" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="5" GridPane.rowIndex="7" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="6" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="6" GridPane.rowIndex="4" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="5" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="6" GridPane.rowIndex="6" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="7" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="7" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="7" GridPane.rowIndex="1" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="2" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="7" GridPane.rowIndex="3" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="4" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.columnIndex="7" GridPane.rowIndex="5" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="6" />
-            <StackPane onMouseClicked="#clickOnCell" prefHeight="57.0" prefWidth="50.0" style="-fx-background-color: green;" GridPane.columnIndex="7" GridPane.rowIndex="7" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.rowIndex="1" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.rowIndex="2" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.rowIndex="3" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.rowIndex="4" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.rowIndex="5" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.rowIndex="6" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.rowIndex="7" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="1" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="2" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="3" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="4" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="5" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="6" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="7" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #739552;" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebecd0;" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="57.0" prefWidth="50.0" style="-fx-background-color: #739552;" GridPane.columnIndex="7" GridPane.rowIndex="7" />
          </children>
       </GridPane>
    </children>
