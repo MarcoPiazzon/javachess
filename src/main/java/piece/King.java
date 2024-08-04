@@ -2,8 +2,27 @@ package piece;
 
 import utils.Constant;
 
-public class King extends Piece{
-    public King(Constant.Color color){
-        super(color);
+/**
+ * Represents a king chess piece.
+ * Inherits from the Piece class and implements specific behavior for a king.
+ */
+public class King extends Piece {
+
+    /**
+     * Constructs a new King with the specified color.
+     *
+     * @param color the color of the king (white or black)
+     */
+    public King(Constant.Color color) {
+        super(color); // Call the constructor of the superclass (Piece)
+    }
+
+    /**
+     * Calculates the possible moves for the king.
+     */
+    @Override
+    public void calculatePossibleMoves() {
+        // Implementation needed for calculating the bishop's moves
+        System.out.println("Must implement");
     }
 }

@@ -4,39 +4,66 @@ import player.Human;
 import player.Player;
 import utils.Move;
 
+/**
+ * Manages the game of chess, including player turns and game state.
+ */
 public class Game {
     private final Board _chessboard;
     private final Player _player1;
     private final Player _player2;
-    private boolean _turn;
+    private boolean _turn; // true if it's player1's turn, false if it's player2's turn
 
-    public Game(){
+    /**
+     * Constructs a new Game with an initialized chessboard and two players.
+     */
+    public Game() {
         this._chessboard = new Board();
         this._player1 = new Human();
         this._player2 = new Human();
-        this._turn = true;
+        this._turn = true; // Start with player 1's turn
     }
 
-    public void startGame(){
-
+    /**
+     * Starts the game by setting up any necessary initial state.
+     */
+    public void startGame() {
+        // Implement game start logic here
     }
 
-    private boolean isCheckMate(){
+    /**
+     * Checks if the current state of the game is checkmate.
+     *
+     * @return true if the game is in a checkmate state, false otherwise
+     */
+    private boolean isCheckMate() {
+        // Implement logic to determine if the game is in checkmate
         return false;
     }
 
-    private void printDetailsGame(){
-
+    /**
+     * Prints details about the current game state to the console.
+     */
+    private void printDetailsGame() {
+        // Implement logic to print game details
     }
 
-    private Move getInputMove(){
-        return new Move('0',0,'0',0);
+    /**
+     * Retrieves the move input from the player.
+     *
+     * @return a Move object representing the player's move
+     */
+    private Move getInputMove() {
+        // Placeholder implementation
+        return new Move('0', 0, '0', 0);
     }
 
-    private boolean isInputMoveValid(){
+    /**
+     * Validates the player's move input.
+     *
+     * @return true if the move input is valid, false otherwise
+     */
+    private boolean isInputMoveValid() {
+        // Implement move validation logic here
         return false;
     }
-
 }
-
-

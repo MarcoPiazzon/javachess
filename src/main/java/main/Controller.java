@@ -9,7 +9,6 @@ import javafx.scene.layout.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Logger;
 
 import static utils.Constant.Pieces.Path.*;
 import static utils.Constant.Pieces.Dimensions.*;
@@ -20,7 +19,6 @@ import static utils.Constant.Pieces.Dimensions.*;
  */
 public class Controller implements Initializable {
     private Board _board;
-    private static final Logger logger = Logger.getLogger(Controller.class.getName());
 
     @FXML
     private AnchorPane myAP;
@@ -37,6 +35,7 @@ public class Controller implements Initializable {
     @FXML
     private void clickOnCell(MouseEvent event){
         Node source = (Node)event.getSource();
+        // Get dates of the clicked cell
         int colIndex = (GridPane.getColumnIndex((source)) == null ? 0 : (GridPane.getColumnIndex(source)));
         int rowIndex = (GridPane.getRowIndex(source)) == null ? 0 : (GridPane.getRowIndex(source));
         // conv a to h
@@ -57,6 +56,7 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this._board = new Board();
 
+        // Loop through each cell in the 8x8 chessboard grid
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 // Get the image path for the piece at position (i, j)
@@ -67,19 +67,12 @@ public class Controller implements Initializable {
 
                     // Print an error message if the image is not found
                     if (imgURL == null) {
-                        logger.warning("Image not found: " + imgPath);
+                        System.err.println("Image not found: " + imgPath);
                         continue;
                     }
 
                     // Load image, create StackPane with it, set click handler, and add to GridPane
-                    Image img = new Image(imgURL.toExternalForm(), PIECE_HEIGHT, PIECE_WIDTH, true, false);
-                    StackPane sp = new StackPane();
-                    sp.setBackground(new Background(new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
-                            new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, false))));
-
-                    sp.setOnMouseClicked(this::clickOnCell);
-                    sp.setOnMouseDragged(event -> dragged(event, sp));
-                    sp.setOnMouseReleased(event -> released(event, sp));
+                    StackPane sp = getStackPane(imgURL);
 
                     myGrid.add(sp, j, i);
                 }
@@ -87,10 +80,41 @@ public class Controller implements Initializable {
         }
     }
 
+    /**
+     * Creates a StackPane containing the chess piece image and sets up event handlers.
+     *
+     * @param imgURL the URL of the image to be used for the piece
+     * @return the StackPane containing the image
+     */
+    private StackPane getStackPane(URL imgURL) {
+        Image img = new Image(imgURL.toExternalForm(), PIECE_HEIGHT, PIECE_WIDTH, true, false);
+        StackPane sp = new StackPane();
+        sp.setBackground(new Background(new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, false))));
+
+        sp.setOnMouseClicked(this::clickOnCell); // Set click handler
+        sp.setOnMouseDragged(event -> dragged(event, sp)); // Set drag handler
+        sp.setOnMouseReleased(event -> released(event, sp)); // Set release handler
+        return sp;
+    }
+
+    /**
+     * Handles the dragging of a chess piece.
+     *
+     * @param event the MouseEvent triggered by dragging the piece
+     * @param p     the Node representing the piece being dragged
+     */
     public void dragged(MouseEvent event, Node p){
         p.setTranslateX(event.getX() + p.getTranslateX());
         p.setTranslateY(event.getY() + p.getTranslateY());
     }
+
+    /**
+     * Handles the release of a chess piece after dragging.
+     *
+     * @param event the MouseEvent triggered by releasing the piece
+     * @param p     the StackPane representing the piece being released
+     */
 
     public void released(MouseEvent event, StackPane p){
         // Current position piece
@@ -103,10 +127,11 @@ public class Controller implements Initializable {
         gridX = Math.max(0, Math.min(gridX, 7));
         gridY = Math.max(0, Math.min(gridY, 7));
 
-        // set piece
+        // Set the piece in the new grid cell
         GridPane.setColumnIndex(p, gridX);
         GridPane.setRowIndex(p, gridY);
 
+        // Reset translation offsets
         p.setTranslateX(0);
         p.setTranslateY(0);
     }

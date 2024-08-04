@@ -1,27 +1,49 @@
 package main;
 
 import piece.Piece;
-import utils.Constant.*;
 import utils.Move;
 
+/**
+ * Represents a chessboard with methods to initialize and manage the board state.
+ */
 public class Board {
     private final Piece[] _chessboard;
 
-    public Board(){
+    /**
+     * Constructs a new Board and initializes the chessboard.
+     */
+    public Board() {
         this._chessboard = initChessBoard();
     }
 
-    private Piece[] initChessBoard(){
+    /**
+     * Initializes the chessboard with the starting positions of the chess pieces.
+     *
+     * @return an array of Piece objects representing the chessboard
+     */
+    private Piece[] initChessBoard() {
         Piece[] res = new Piece[64];
-        //res[0] = new Knight(Color.WHITE, "");
+        // Initialize the chessboard with pieces at their starting positions
+
         return res;
     }
 
-    private boolean isMoveValid(Move move){
+    /**
+     * Checks if a move is valid according to the rules of chess.
+     *
+     * @param move the Move object representing the move to be validated
+     * @return true if the move is valid, false otherwise
+     */
+    private boolean isMoveValid(Move move) {
+        // Implement the logic to check if a move is valid
         return false;
     }
 
-    public void printBoard(){
+    /**
+     * Prints the current state of the chessboard to the console.
+     */
+    public void printBoard() {
         System.out.println("printo la chessboard");
     }
 }
+
