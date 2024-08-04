@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
    <children>
       <GridPane fx:id="myGrid" layoutX="152.0" layoutY="123.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="478.0">
@@ -31,6 +30,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
+            <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" />
             <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.rowIndex="1" />
             <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;" GridPane.rowIndex="2" />
             <StackPane onMouseClicked="#clickOnCell" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" GridPane.rowIndex="3" />
