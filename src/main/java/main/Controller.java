@@ -1,15 +1,12 @@
 package main;
 
-import component.Component;
-import component.DraggableMaker;
-import component.DraggableMakerGrid;
-import component.GridHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import piece.Piece;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,20 +21,10 @@ import static utils.Constant.Pieces.Dimensions.*;
  */
 public class Controller implements Initializable {
     private Board _board;
-    private double planeWidth;
-    private double planeHeight;
-    private int tilesAcross;
-    private int tileAmount;
-    private int gridSize;
-    private int tilesDown;
     private static final Logger logger = Logger.getLogger(Controller.class.getName());
 
     @FXML
     private AnchorPane myAP;
-
-    private GridHandler gridHandler;
-    private DraggableMakerGrid draggableMakerGrid;
-    private DraggableMaker draggableMaker = new DraggableMaker();
 
 
     @FXML
@@ -96,10 +83,24 @@ public class Controller implements Initializable {
                             new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, false))));
 
                     sp.setOnMouseClicked(this::clickOnCell);
-                    draggableMaker.makeDraggable(sp);
+                    sp.setOnMouseDragged(event -> dragged(event, sp));
+                    sp.setOnMouseReleased(event -> released(event, sp));
                     myGrid.add(sp, j, i);
                 }
             }
         }
+    }
+
+    public void dragged(MouseEvent event,Node p){
+        p.setTranslateX(event.getX() + p.getTranslateX());
+        p.setTranslateY(event.getY() + p.getTranslateY());
+    }
+
+    public void released(MouseEvent event, StackPane p){
+        int gridx = (int)p.getTranslateX() / PIECE_HEIGHT;
+        int gridy = (int)p.getTranslateY() / PIECE_HEIGHT;
+        p.setTranslateX(PIECE_HEIGHT / 2 + PIECE_HEIGHT * gridx);
+        p.setTranslateY(PIECE_HEIGHT / 2 + PIECE_HEIGHT * gridy);
+
     }
 }
