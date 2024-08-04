@@ -6,7 +6,6 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import piece.Piece;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,7 +24,6 @@ public class Controller implements Initializable {
 
     @FXML
     private AnchorPane myAP;
-
 
     @FXML
     private GridPane myGrid;
@@ -70,7 +68,6 @@ public class Controller implements Initializable {
                     // Print an error message if the image is not found
                     if (imgURL == null) {
                         logger.warning("Image not found: " + imgPath);
-                        // System.err.println("Image not found at path: " + imgPath);
                         continue;
                     }
 
@@ -81,9 +78,8 @@ public class Controller implements Initializable {
                             new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, false))));
 
                     sp.setOnMouseClicked(this::clickOnCell);
-                   sp.setOnMouseDragged(event -> dragged(event, sp));
+                    sp.setOnMouseDragged(event -> dragged(event, sp));
                     sp.setOnMouseReleased(event -> released(event, sp));
-
 
                     myGrid.add(sp, j, i);
                 }
@@ -91,16 +87,27 @@ public class Controller implements Initializable {
         }
     }
 
-    public void dragged(MouseEvent event,Node p){
+    public void dragged(MouseEvent event, Node p){
         p.setTranslateX(event.getX() + p.getTranslateX());
         p.setTranslateY(event.getY() + p.getTranslateY());
     }
 
     public void released(MouseEvent event, StackPane p){
-        int gridx = (int)p.getTranslateX() / PIECE_HEIGHT;
-        int gridy = (int)p.getTranslateY() / PIECE_HEIGHT;
-        p.setTranslateX(PIECE_HEIGHT / 2 + PIECE_HEIGHT * gridx);
-        p.setTranslateY(PIECE_HEIGHT / 2 + PIECE_HEIGHT * gridy);
+        // Current position piece
+        double layoutX = p.getLayoutX() + p.getTranslateX();
+        double layoutY = p.getLayoutY() + p.getTranslateY();
 
+        // Coord grid and check errors
+        int gridX = (int) (layoutX / PIECE_WIDTH);
+        int gridY = (int) (layoutY / PIECE_HEIGHT);
+        gridX = Math.max(0, Math.min(gridX, 7));
+        gridY = Math.max(0, Math.min(gridY, 7));
+
+        // set piece
+        GridPane.setColumnIndex(p, gridX);
+        GridPane.setRowIndex(p, gridY);
+
+        p.setTranslateX(0);
+        p.setTranslateY(0);
     }
 }
