@@ -3,9 +3,10 @@ package main;
 import piece.*;
 import player.Human;
 import player.Player;
+import utils.FileHelper;
 import utils.Move;
 
-import static utils.Constant.Color.*;
+import static utils.Constant.Pieces.Color.*;
 
 /**
  * Manages the game of chess, including player turns and game state.
@@ -14,16 +15,28 @@ public class Game {
     private final Board _chessboard;
     private final Player _player1;
     private final Player _player2;
+    private final FileHelper _fileHelper = new FileHelper("src/main/java/print/detailsgame.csv");
     private boolean _turn; // true if it's player1's turn, false if it's player2's turn
+    private int _round;
 
     /**
      * Constructs a new Game with an initialized chessboard and two players.
      */
     public Game() {
         this._chessboard = new Board();
-        this._player1 = new Human();
-        this._player2 = new Human();
+        _chessboard.printBoard();
+        this._player1 = new Human("Player1");
+        this._player2 = new Human("Player2");
         this._turn = true; // Start with player 1's turn
+        this._round = 0;
+    }
+
+    public Piece getPiece(int row, int col) {
+        return _chessboard.getPiece(row * 8 + col);
+    }
+
+    public char getPieceChar(int row, int col) {
+        return _chessboard.getPieceChar(row * 8 + col);
     }
 
     /**
@@ -43,11 +56,13 @@ public class Game {
         return false;
     }
 
-    /**
-     * Prints details about the current game state to the console.
-     */
-    private void printDetailsGame() {
-        // Implement logic to print game details
+    public void saveDetailsGame() {
+        StringBuilder details = new StringBuilder();
+        details.append("------------------------");
+        details.append("Turno numero ").append(this._round).append("\n");
+        details.append(_chessboard.getPrintBoard());
+
+        _fileHelper.saveToFile(details.toString());
     }
 
 

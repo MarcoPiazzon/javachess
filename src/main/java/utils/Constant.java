@@ -6,18 +6,18 @@ package utils;
 public class Constant {
 
     /**
-     * Defines color constants used in the application.
-     */
-    public static class Color{
-        public static final int WHITE = 1;
-        public static final int BLACK = 2;
-        public static final int BLANK = 3;
-    }
-
-    /**
      * Defines constants related to chess pieces.
      */
     public static class Pieces{
+
+        /**
+         * Defines color constants used in the application.
+         */
+        public static class Color{
+            public static final int WHITE = 1;
+            public static final int BLACK = 2;
+            public static final int BLANK = 3;
+        }
 
         public static class Symbol{
             public static final char BISHOP_SYMBOL = '♝';
@@ -26,6 +26,7 @@ public class Constant {
             public static final char PAWN_SYMBOL = '♟';
             public static final char QUEEN_SYMBOL = '♛';
             public static final char TOWER_SYMBOL = '♜';
+            public static final char BLANK_CELL = ' ';
         }
 
         /**

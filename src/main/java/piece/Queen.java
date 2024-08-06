@@ -1,5 +1,7 @@
 package piece;
 
+import static utils.Constant.Pieces.Symbol.QUEEN_SYMBOL;
+
 /**
  * Represents a queen chess piece.
  * Inherits from the Piece class and implements specific behavior for a queen.
@@ -13,6 +15,7 @@ public class Queen extends Piece {
      */
     public Queen(int color) {
         super(color); // Call the constructor of the superclass (Piece) to initialize color
+        _symbol = QUEEN_SYMBOL;
     }
 
     /**

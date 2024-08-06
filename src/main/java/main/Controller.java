@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import utils.FileHelper;
 import utils.Move;
 
 import java.net.URL;
@@ -28,6 +29,8 @@ public class Controller implements Initializable {
     private Game _game;
     private int startCol = -1;
     private int startRow = -1;
+
+    private FileHelper _fileHelper = new FileHelper("src/main/java/print/movefailed.csv");
 
     // Set instance Game
     public void setGame(Game game) {
@@ -137,24 +140,38 @@ public class Controller implements Initializable {
         gridX = Math.max(0, Math.min(gridX, 7));
         gridY = Math.max(0, Math.min(gridY, 7));
 
-        // Set the piece in the new grid cell
-        GridPane.setColumnIndex(p, gridX);
-        GridPane.setRowIndex(p, gridY);
-
-        // Reset translation offsets
-        p.setTranslateX(0);
-        p.setTranslateY(0);
-
         char startColChar = (char) ('a' + startCol);
         int startRowNum = 8 - startRow;
         char endColChar = (char) ('a' + gridX);
         int endRowNum = 8 - gridY;
 
         Move move = new Move(startColChar, startRowNum, endColChar, endRowNum);
-        System.out.println(move);
+
+        boolean canMoveHere = false;
+
+        if (canMoveHere) {
+            // Set the piece in the new grid cell
+            GridPane.setColumnIndex(p, gridX);
+            GridPane.setRowIndex(p, gridY);
+        } else{
+            String piece = "Il pezzo era un " + _game.getPieceChar(startRow, startCol);
+            _fileHelper.saveToFile(move.toString() + piece);
+            _game.saveDetailsGame();
+        }
+
+        /*
+        GridPane.setColumnIndex(p, gridX);
+        GridPane.setRowIndex(p, gridY);
+        */
+
+        // Reset translation offsets
+        p.setTranslateX(0);
+        p.setTranslateY(0);
 
         startCol = -1;
         startRow = -1;
+
+
     }
 
     /**
@@ -174,5 +191,6 @@ public class Controller implements Initializable {
                 .findFirst()
                 .orElse(null);
     }
+
 
 }

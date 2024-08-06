@@ -1,5 +1,7 @@
 package piece;
 
+import static utils.Constant.Pieces.Symbol.BLANK_CELL;
+
 /**
  * Represents a free cell.
  * Inherits from the Piece class and implements specific behavior for a bishop.
@@ -13,6 +15,7 @@ public class Free extends Piece {
      */
     public Free(int color) {
         super(color); // Call the constructor of the superclass (Piece)
+        _symbol = BLANK_CELL;
     }
 
     /**

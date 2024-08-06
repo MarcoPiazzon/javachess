@@ -1,5 +1,7 @@
 package piece;
 
+import static utils.Constant.Pieces.Symbol.KING_SYMBOL;
+
 /**
  * Represents a king chess piece.
  * Inherits from the Piece class and implements specific behavior for a king.
@@ -13,6 +15,7 @@ public class King extends Piece {
      */
     public King(int color) {
         super(color); // Call the constructor of the superclass (Piece)
+        _symbol = KING_SYMBOL;
     }
 
     /**

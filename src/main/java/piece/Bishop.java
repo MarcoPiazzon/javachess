@@ -1,5 +1,7 @@
 package piece;
 
+import static utils.Constant.Pieces.Symbol.BISHOP_SYMBOL;
+
 /**
  * Represents a bishop chess piece.
  * Inherits from the Piece class and implements specific behavior for a bishop.
@@ -13,6 +15,7 @@ public class Bishop extends Piece {
      */
     public Bishop(int color) {
         super(color); // Call the constructor of the superclass (Piece)
+        _symbol = BISHOP_SYMBOL;
     }
 
     /**

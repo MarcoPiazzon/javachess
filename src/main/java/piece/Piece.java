@@ -12,6 +12,7 @@ public abstract class Piece {
     protected final int _color; // Color of the piece
     protected boolean _isEverMoved; // Indicates if the piece has ever been moved
     protected ArrayList<Move> _possibleMoves; // List of possible moves for the piece
+    protected char _symbol;
 
     /**
      * Constructs a new Piece with the specified color.
@@ -21,6 +22,10 @@ public abstract class Piece {
     public Piece(int color) {
         this._color = color;
         this._isEverMoved = false; // Initially, the piece has not been moved
+    }
+
+    public char getSymbol() {
+        return _symbol;
     }
 
     /**

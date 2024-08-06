@@ -1,5 +1,7 @@
 package piece;
 
+import static utils.Constant.Pieces.Symbol.TOWER_SYMBOL;
+
 /**
  * Represents a tower chess piece.
  * Inherits from the Piece class and implements specific behavior for a rook.
@@ -13,6 +15,7 @@ public class Tower extends Piece {
      */
     public Tower(int color) {
         super(color); // Call the constructor of the superclass (Piece) to initialize color
+        _symbol = TOWER_SYMBOL;
     }
 
     /**
