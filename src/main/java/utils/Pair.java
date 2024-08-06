@@ -39,4 +39,9 @@ public class Pair<A, B> {
     public B getSecond() {
         return this._row;
     }
+
+    @Override
+    public String toString() {
+        return "Pair [_col=" + this._col + ", _row=" + this._row + "]";
+    }
 }

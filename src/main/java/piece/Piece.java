@@ -4,14 +4,12 @@ import utils.Move;
 
 import java.util.ArrayList;
 
-import static utils.Constant.Color;
-
 /**
  * Abstract class representing a chess piece.
  * Provides basic properties and methods common to all chess pieces.
  */
 public abstract class Piece {
-    protected final Color _color; // Color of the piece (white or black)
+    protected final int _color; // Color of the piece
     protected boolean _isEverMoved; // Indicates if the piece has ever been moved
     protected ArrayList<Move> _possibleMoves; // List of possible moves for the piece
 
@@ -20,7 +18,7 @@ public abstract class Piece {
      *
      * @param color the color of the piece
      */
-    public Piece(Color color) {
+    public Piece(int color) {
         this._color = color;
         this._isEverMoved = false; // Initially, the piece has not been moved
     }
@@ -52,7 +50,5 @@ public abstract class Piece {
      * Calculates the possible moves for the piece.
      * This method should be implemented by subclasses to define the specific movement logic for each type of piece.
      */
-    public void calculatePossibleMoves() {
-        // Implementation should be provided in subclasses
-    }
+    public abstract void calculatePossibleMoves();
 }

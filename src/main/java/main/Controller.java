@@ -6,7 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import org.controlsfx.control.spreadsheet.Grid;
+import utils.Move;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,31 +19,19 @@ import static utils.Constant.Pieces.Dimensions.*;
  * Initializes the board with the starting chess pieces and handles cell clicks.
  */
 public class Controller implements Initializable {
-    private Board _board;
-
     @FXML
     private AnchorPane myAP;
 
     @FXML
     private GridPane myGrid;
 
-    /**
-     * Handles mouse clicks on cells of the chessboard.
-     * Converts the cell's row and column indices to chess notation and prints the cell identifier.
-     *
-     * @param event the MouseEvent triggered by clicking a cell
-     */
-    @FXML
-    private void clickOnCell(MouseEvent event){
-        Node source = (Node)event.getSource();
-        // Get dates of the clicked cell
-        int colIndex = (GridPane.getColumnIndex((source)) == null ? 0 : (GridPane.getColumnIndex(source)));
-        int rowIndex = (GridPane.getRowIndex(source)) == null ? 0 : (GridPane.getRowIndex(source));
-        // conv a to h
-        rowIndex = 8 - rowIndex;
-        System.out.println("cella: " + (char)('a' + colIndex) + rowIndex);
+    private Game _game;
+    private int startCol = -1;
+    private int startRow = -1;
 
-        //_board.printBoard();
+    // Set instance Game
+    public void setGame(Game game) {
+        this._game = game;
     }
 
     /**
@@ -55,8 +43,6 @@ public class Controller implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this._board = new Board();
-
         // Loop through each cell in the 8x8 chessboard grid
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -79,6 +65,25 @@ public class Controller implements Initializable {
                 }
             }
         }
+    }
+
+    /**
+     * Handles mouse clicks on cells of the chessboard.
+     * Converts the cell's row and column indices to chess notation and prints the cell identifier.
+     *
+     * @param event the MouseEvent triggered by clicking a cell
+     */
+    @FXML
+    private void clickOnCell(MouseEvent event){
+        Node source = (Node)event.getSource();
+        // Get dates of the clicked cell
+        int colIndex = (GridPane.getColumnIndex((source)) == null ? 0 : (GridPane.getColumnIndex(source)));
+        int rowIndex = (GridPane.getRowIndex(source)) == null ? 0 : (GridPane.getRowIndex(source));
+        // conv a to h
+        rowIndex = 8 - rowIndex;
+        System.out.println("cella: " + (char)('a' + colIndex) + rowIndex);
+
+        //_board.printBoard();
     }
 
     /**
@@ -106,6 +111,10 @@ public class Controller implements Initializable {
      * @param p     the Node representing the piece being dragged
      */
     public void dragged(MouseEvent event, Node p){
+        if (startCol == -1 && startRow == -1) {
+            startCol = (GridPane.getColumnIndex(p) == null ? 0 : GridPane.getColumnIndex(p));
+            startRow = (GridPane.getRowIndex(p) == null ? 0 : GridPane.getRowIndex(p));
+        }
         p.setTranslateX(event.getX() + p.getTranslateX());
         p.setTranslateY(event.getY() + p.getTranslateY());
     }
@@ -136,15 +145,34 @@ public class Controller implements Initializable {
         p.setTranslateX(0);
         p.setTranslateY(0);
 
-        Node arrive = getNodeByRowColumnIndex(gridX,gridY,myGrid);
-        myGrid.getChildren().remove(arrive);
+        char startColChar = (char) ('a' + startCol);
+        int startRowNum = 8 - startRow;
+        char endColChar = (char) ('a' + gridX);
+        int endRowNum = 8 - gridY;
 
+        Move move = new Move(startColChar, startRowNum, endColChar, endRowNum);
+        System.out.println(move);
+
+        startCol = -1;
+        startRow = -1;
     }
 
-    public static Node getNodeByRowColumnIndex(final int row, final int column, GridPane gridPane) {
+    /**
+     * NON HO TROVATO L UTILITA DEL METODO - GENERA SOLO ERRORE
+     * @param row
+     * @param column
+     * @param gridPane
+     * @return
+     */
+    public static Node getNodeByRowColumnIndex(final int row, int column, GridPane gridPane) {
         return gridPane.getChildren().stream()
-                .filter(node -> gridPane.getRowIndex(node) == row)
-                .filter(node -> gridPane.getColumnIndex(node) == column)
-                .findFirst().get();
+                .filter(node -> {
+                    Integer nodeRow = GridPane.getRowIndex(node);
+                    Integer nodeColumn = GridPane.getColumnIndex(node);
+                    return nodeRow != null && nodeRow == row && nodeColumn != null && nodeColumn == column;
+                })
+                .findFirst()
+                .orElse(null);
     }
+
 }

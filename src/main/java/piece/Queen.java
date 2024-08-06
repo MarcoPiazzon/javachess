@@ -1,7 +1,5 @@
 package piece;
 
-import utils.Constant;
-
 /**
  * Represents a queen chess piece.
  * Inherits from the Piece class and implements specific behavior for a queen.
@@ -13,7 +11,7 @@ public class Queen extends Piece {
      *
      * @param color the color of the queen (white or black)
      */
-    public Queen(Constant.Color color) {
+    public Queen(int color) {
         super(color); // Call the constructor of the superclass (Piece) to initialize color
     }
 

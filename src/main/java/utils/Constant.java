@@ -19,6 +19,15 @@ public class Constant {
      */
     public static class Pieces{
 
+        public static class Symbol{
+            public static final char BISHOP_SYMBOL = '♝';
+            public static final char KING_SYMBOL = '♚';
+            public static final char KNIGHT_SYMBOL = '♞';
+            public static final char PAWN_SYMBOL = '♟';
+            public static final char QUEEN_SYMBOL = '♛';
+            public static final char TOWER_SYMBOL = '♜';
+        }
+
         /**
          * Provides paths to image files for chess pieces and initializes the chessboard.
          */

@@ -1,8 +1,11 @@
 package main;
 
+import piece.*;
 import player.Human;
 import player.Player;
 import utils.Move;
+
+import static utils.Constant.Color.*;
 
 /**
  * Manages the game of chess, including player turns and game state.
@@ -47,14 +50,9 @@ public class Game {
         // Implement logic to print game details
     }
 
-    /**
-     * Retrieves the move input from the player.
-     *
-     * @return a Move object representing the player's move
-     */
-    private Move getInputMove() {
-        // Placeholder implementation
-        return new Move('0', 0, '0', 0);
+
+    public void getInputMove(Move move) {
+
     }
 
     /**
@@ -65,5 +63,25 @@ public class Game {
     private boolean isInputMoveValid() {
         // Implement move validation logic here
         return false;
+    }
+
+    private static Piece getPieceFromPath(String path, int row){
+        String[] parts = path.split("_");
+        String utilPart = parts[1];
+        return switch (utilPart){
+            case "BISHOP" -> new Bishop(getColorFromPos(row));
+            case "KING" -> new King(getColorFromPos(row));
+            case "KNIGHT" -> new Knight(getColorFromPos(row));
+            case "PAWN" -> new Pawn(getColorFromPos(row));
+            case "QUEEN" -> new Queen(getColorFromPos(row));
+            case "TOWER" -> new Tower(getColorFromPos(row));
+            default -> throw new IllegalStateException("Unexpected value: " + utilPart);
+        };
+    }
+
+    private static int getColorFromPos(int row){
+        if (row < 3) return WHITE;
+        else if (row > 6) return BLACK;
+        return BLANK;
     }
 }

@@ -7,7 +7,7 @@ import utils.Move;
  * Represents a chessboard with methods to initialize and manage the board state.
  */
 public class Board {
-    private final Piece[] _chessboard;
+    private Piece[] _chessboard;
 
     /**
      * Constructs a new Board and initializes the chessboard.
@@ -24,7 +24,9 @@ public class Board {
     private Piece[] initChessBoard() {
         Piece[] res = new Piece[64];
         // Initialize the chessboard with pieces at their starting positions
-
+        for (int i = 0; i < 64; i++) {
+            res[i] = null;
+        }
         return res;
     }
 

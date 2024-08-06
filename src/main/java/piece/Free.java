@@ -1,17 +1,17 @@
 package piece;
 
 /**
- * Represents a bishop chess piece.
+ * Represents a free cell.
  * Inherits from the Piece class and implements specific behavior for a bishop.
  */
-public class Bishop extends Piece {
+public class Free extends Piece {
 
     /**
-     * Constructs a new Bishop with the specified color.
+     * Constructs a new free cell with the specified color.
      *
-     * @param color the color of the bishop (white or black)
+     * @param color the color of the free cell (BLANK)
      */
-    public Bishop(int color) {
+    public Free(int color) {
         super(color); // Call the constructor of the superclass (Piece)
     }
 
@@ -20,8 +20,6 @@ public class Bishop extends Piece {
      */
     @Override
     public void calculatePossibleMoves() {
-        // Implementation needed for calculating the bishop's moves
-        System.out.println("Must implement");
+        System.out.println("Error file Free r23");
     }
 }
-

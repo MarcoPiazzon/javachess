@@ -47,7 +47,7 @@ public class Move {
     @Override
     public String toString() {
         // Implementation needed to return a meaningful string representation of the move
-        return "";
+        return this._ca.toString() + " " + this._cp.toString();
     }
 }
 

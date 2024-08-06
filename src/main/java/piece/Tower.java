@@ -1,7 +1,5 @@
 package piece;
 
-import utils.Constant.Color;
-
 /**
  * Represents a tower chess piece.
  * Inherits from the Piece class and implements specific behavior for a rook.
@@ -13,7 +11,7 @@ public class Tower extends Piece {
      *
      * @param color the color of the rook (white or black)
      */
-    public Tower(Color color) {
+    public Tower(int color) {
         super(color); // Call the constructor of the superclass (Piece) to initialize color
     }
 

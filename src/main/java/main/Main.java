@@ -1,6 +1,7 @@
 package main;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -37,6 +38,13 @@ public class Main extends Application {
         stage.setTitle("javachess"); // Set the title of the application window
         stage.setScene(scene); // Set the scene on the stage
         stage.show(); // Display the stage
+
+        // Esegui del codice dopo l'avvio dell'applicazione
+        Platform.runLater(() -> {
+            Game game = new Game();
+            game.startGame();
+            myControllerHandle.setGame(game);
+        });
     }
 
     /**
