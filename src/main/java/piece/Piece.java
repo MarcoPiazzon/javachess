@@ -58,4 +58,9 @@ public abstract class Piece {
     public abstract void calculatePossibleMoves();
 
     public abstract boolean isValidMove(Move move);
+
+    @Override
+    public String toString() {
+        return "Pezzo " + _symbol;
+    }
 }

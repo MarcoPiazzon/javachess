@@ -77,7 +77,18 @@ public class Board {
     }
 
     public void movePiece(Move move){
-        // Muove il pezzo
+        /*
+        IMPLEMENTARE IL MANGIARE UN PEZZO
+         */
+
+        // Valori di partenza CP e valori di arrivo CA
+        int rowCP = move.getStartPosition().getSecond() - 1;
+        int colCP = move.getStartPosition().getFirst() - 'a';
+        int rowCA = move.getEndPosition().getSecond() - 1;
+        int colCA = move.getEndPosition().getFirst() - 'a';
+        System.out.println(rowCP + " " + colCP + " " + rowCA + " " + colCA);
+        _chessboard[rowCA * 8 + colCA] = _chessboard[rowCP * 8 + colCP];
+        _chessboard[rowCP * 8 + colCP] = new Free(BLANK);
     }
 
     public void undoLastMove(Move move, Piece pieceCA) {

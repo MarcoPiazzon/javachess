@@ -145,32 +145,31 @@ public class Controller implements Initializable {
         char endColChar = (char) ('a' + gridX);
         int endRowNum = 8 - gridY;
 
-        Move move = new Move(startColChar, startRowNum, endColChar, endRowNum);
+        if (startCol > -1 && startRow > -1){
+            Move move = new Move(startColChar, startRowNum, endColChar, endRowNum);
 
-        boolean canMoveHere = _game.isInputMoveValid(move, startRow, startCol);
+            boolean canMoveHere = _game.isInputMoveValid(move);
 
-        if (canMoveHere) {
-            // Set the piece in the new grid cell
-            GridPane.setColumnIndex(p, gridX);
-            GridPane.setRowIndex(p, gridY);
-        } else{
-            String piece = "Il pezzo era un " + _game.getPieceChar(startRow, startCol);
-            _fileHelper.saveToFile(move.toString() + piece);
-            _game.saveDetailsGame();
+            if (canMoveHere) {
+                // Set the piece in the new grid cell
+                myGrid.setColumnIndex((Node) p, gridX);
+                myGrid.setRowIndex((Node) p, gridY);
+            } else{
+                String piece = "Il pezzo era un " + _game.getPieceChar(startRow, startCol);
+                _fileHelper.saveToFile(move.toString() + piece);
+                _game.saveDetailsGame();
+            }
+
+            // Reset translation offsets
+            p.setTranslateX(0);
+            p.setTranslateY(0);
+
+            startCol = -1;
+            startRow = -1;
         }
-
-        /*
-        GridPane.setColumnIndex(p, gridX);
-        GridPane.setRowIndex(p, gridY);
-        */
-
-        // Reset translation offsets
-        p.setTranslateX(0);
-        p.setTranslateY(0);
-
-        startCol = -1;
-        startRow = -1;
-
+        else {
+            System.out.println("Spostamento non valido");
+        }
 
     }
 

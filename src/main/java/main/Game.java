@@ -61,12 +61,16 @@ public class Game {
 
     }
 
-    public boolean isInputMoveValid(Move move, int row, int col) {
+    public boolean isInputMoveValid(Move move) {
         // Implement move validation logic here
+        int row = move.getStartPosition().getSecond() - 1;
+        int col = (move.getStartPosition().getFirst() - 'a');
+
         if (_chessboard.getPiece(row * 8 + col).isValidMove(move)){
                 _chessboardBackup.movePiece(move);
                 if (!isPlayerInCheck()){
                     _chessboard.movePiece(move);
+                    _chessboard.printBoard();
                     return true;
                 }
                 else{

@@ -31,6 +31,6 @@ public class Pawn extends Piece {
 
     @Override
     public boolean isValidMove(Move move) {
-        return false;
+        return true;
     }
 }
