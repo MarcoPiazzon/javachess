@@ -1,5 +1,7 @@
 package piece;
 
+import utils.Move;
+
 import static utils.Constant.Pieces.Symbol.QUEEN_SYMBOL;
 
 /**
@@ -25,5 +27,10 @@ public class Queen extends Piece {
     public void calculatePossibleMoves() {
         // Implementation needed to calculate the queen's possible moves
         System.out.println("Must implement");
+    }
+
+    @Override
+    public boolean isValidMove(Move move) {
+        return false;
     }
 }

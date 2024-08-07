@@ -1,5 +1,7 @@
 package piece;
 
+import utils.Move;
+
 import static utils.Constant.Pieces.Symbol.KING_SYMBOL;
 
 /**
@@ -25,5 +27,10 @@ public class King extends Piece {
     public void calculatePossibleMoves() {
         // Implementation needed for calculating the bishop's moves
         System.out.println("Must implement");
+    }
+
+    @Override
+    public boolean isValidMove(Move move) {
+        return false;
     }
 }

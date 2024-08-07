@@ -56,4 +56,6 @@ public abstract class Piece {
      * This method should be implemented by subclasses to define the specific movement logic for each type of piece.
      */
     public abstract void calculatePossibleMoves();
+
+    public abstract boolean isValidMove(Move move);
 }

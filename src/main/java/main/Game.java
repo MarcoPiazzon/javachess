@@ -13,9 +13,9 @@ import static utils.Constant.Pieces.Color.*;
  */
 public class Game {
     private final Board _chessboard;
+    private final Board _chessboardBackup;
     private final Player _player1;
     private final Player _player2;
-    private final FileHelper _fileHelper = new FileHelper("src/main/java/print/detailsgame.csv");
     private boolean _turn; // true if it's player1's turn, false if it's player2's turn
     private int _round;
 
@@ -25,6 +25,7 @@ public class Game {
     public Game() {
         this._chessboard = new Board();
         _chessboard.printBoard();
+        this._chessboardBackup = new Board();
         this._player1 = new Human("Player1");
         this._player2 = new Human("Player2");
         this._turn = true; // Start with player 1's turn
@@ -57,26 +58,27 @@ public class Game {
     }
 
     public void saveDetailsGame() {
-        StringBuilder details = new StringBuilder();
-        details.append("------------------------");
-        details.append("Turno numero ").append(this._round).append("\n");
-        details.append(_chessboard.getPrintBoard());
-
-        _fileHelper.saveToFile(details.toString());
-    }
-
-
-    public void getInputMove(Move move) {
 
     }
 
-    /**
-     * Validates the player's move input.
-     *
-     * @return true if the move input is valid, false otherwise
-     */
-    private boolean isInputMoveValid() {
+    public boolean isInputMoveValid(Move move, int row, int col) {
         // Implement move validation logic here
+        if (_chessboard.getPiece(row * 8 + col).isValidMove(move)){
+                _chessboardBackup.movePiece(move);
+                if (!isPlayerInCheck()){
+                    _chessboard.movePiece(move);
+                    return true;
+                }
+                else{
+                    _chessboardBackup.undoLastMove(move, _chessboard.getPiece(row * 8 + col));
+                    return false;
+                }
+        }
+        return false;
+    }
+
+    private boolean isPlayerInCheck(){
+        // controlla se non é in scacco nella chessboardBackup
         return false;
     }
 

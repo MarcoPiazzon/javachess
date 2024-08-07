@@ -1,5 +1,7 @@
 package piece;
 
+import utils.Move;
+
 import static utils.Constant.Pieces.Symbol.TOWER_SYMBOL;
 
 /**
@@ -25,6 +27,11 @@ public class Tower extends Piece {
     public void calculatePossibleMoves() {
         // Implementation needed to calculate the rook's possible moves
         System.out.println("Must implement");
+    }
+
+    @Override
+    public boolean isValidMove(Move move) {
+        return false;
     }
 }
 

@@ -9,7 +9,7 @@ import static utils.Constant.Pieces.Color.*;
  * Represents a chessboard with methods to initialize and manage the board state.
  */
 public class Board {
-    private Piece[] _chessboard = new Piece[64];
+    private final Piece[] _chessboard = new Piece[64];
 
     /**
      * Constructs a new Board and initializes the chessboard.
@@ -74,6 +74,14 @@ public class Board {
     private boolean isMoveValid(Move move) {
         // Implement the logic to check if a move is valid
         return false;
+    }
+
+    public void movePiece(Move move){
+        // Muove il pezzo
+    }
+
+    public void undoLastMove(Move move, Piece pieceCA) {
+        // Cancella l ultima mossa
     }
 
     /**

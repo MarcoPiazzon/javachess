@@ -1,5 +1,7 @@
 package piece;
 
+import utils.Move;
+
 import static utils.Constant.Pieces.Symbol.KNIGHT_SYMBOL;
 
 /**
@@ -25,6 +27,11 @@ public class Knight extends Piece {
     public void calculatePossibleMoves() {
         // Implementation needed to calculate the knight's possible moves
         System.out.println("Must implement");
+    }
+
+    @Override
+    public boolean isValidMove(Move move) {
+        return false;
     }
 }
 

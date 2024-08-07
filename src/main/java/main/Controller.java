@@ -147,7 +147,7 @@ public class Controller implements Initializable {
 
         Move move = new Move(startColChar, startRowNum, endColChar, endRowNum);
 
-        boolean canMoveHere = false;
+        boolean canMoveHere = _game.isInputMoveValid(move, startRow, startCol);
 
         if (canMoveHere) {
             // Set the piece in the new grid cell

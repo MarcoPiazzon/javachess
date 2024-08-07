@@ -1,5 +1,7 @@
 package piece;
 
+import utils.Move;
+
 import static utils.Constant.Pieces.Symbol.BLANK_CELL;
 
 /**
@@ -24,5 +26,10 @@ public class Free extends Piece {
     @Override
     public void calculatePossibleMoves() {
         System.out.println("Error file Free r23");
+    }
+
+    @Override
+    public boolean isValidMove(Move move) {
+        return false;
     }
 }
