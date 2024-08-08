@@ -23,21 +23,13 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public Predicate<Move> validMove(int end) {
-        return m -> Math.abs(m.getStartPosition().getSecond() - m.getEndPosition().getSecond()) == 0 ;
+    public Predicate<Move> validMove() {
+        return this::checkSingleMove;
     }
 
-    /**
-     * Calculates the possible moves for the pawn.
-     */
-    @Override
-    public void calculatePossibleMoves() {
-        // Implementation needed to calculate the knight's possible moves
-        System.out.println("Must implement");
+    private boolean checkSingleMove(Move m){
+            return Math.abs(m.getStartPosition().getSecond() - m.getEndPosition().getSecond()) == 1 || (Math.abs(m.getStartPosition().getSecond() - m.getEndPosition().getSecond()) == 2 && !_isEverMoved);
+
     }
 
-    @Override
-    public boolean isValidMove(Move move) {
-        return true;
-    }
 }

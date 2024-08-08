@@ -152,12 +152,6 @@ public class Controller implements Initializable {
 
             boolean canMoveHere = _game.isInputMoveValid(move);
 
-            //dovrebbe ritornare le mosse valide
-            List<Move> nl = _game.filterMove(_game.getPiece(startRow,startCol).validMove(1));
-            for(Move m : nl){
-                System.out.println(m.toString());
-            }
-
             if (canMoveHere) {
                 // Set the piece in the new grid cell
                 myGrid.setColumnIndex((Node) p, gridX);
@@ -179,6 +173,7 @@ public class Controller implements Initializable {
             System.out.println("Spostamento non valido");
         }
 
+        //aggiungere il checkmate
     }
 
     /**

@@ -23,27 +23,15 @@ public class Knight extends Piece {
     }
 
     @Override
-    public Predicate<Move> validMove(int end) {
+    public Predicate<Move> validMove() {
         return this::checkSingleMove;
     }
 
     //metodo di prova
     private boolean checkSingleMove(Move m){
+
         return m.getEndPosition().getSecond() < 8;
     }
 
-    /**
-     * Calculates the possible moves for the knight.
-     */
-    @Override
-    public void calculatePossibleMoves() {
-        // Implementation needed to calculate the knight's possible moves
-        System.out.println("Must implement");
-    }
-
-    @Override
-    public boolean isValidMove(Move move) {
-        return false;
-    }
 }
 

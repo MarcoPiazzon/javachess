@@ -23,22 +23,9 @@ public class Tower extends Piece {
     }
 
     @Override
-    public Predicate<Move> validMove(int end) {
+    public Predicate<Move> validMove() {
         return null;
     }
 
-    /**
-     * Calculates the possible moves for the tower.
-     */
-    @Override
-    public void calculatePossibleMoves() {
-        // Implementation needed to calculate the rook's possible moves
-        System.out.println("Must implement");
-    }
-
-    @Override
-    public boolean isValidMove(Move move) {
-        return false;
-    }
 }
 

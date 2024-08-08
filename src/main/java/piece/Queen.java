@@ -23,21 +23,9 @@ public class Queen extends Piece {
     }
 
     @Override
-    public Predicate<Move> validMove(int end) {
+    public Predicate<Move> validMove() {
         return null;
     }
 
-    /**
-     * Calculates the possible moves for the queen.
-     */
-    @Override
-    public void calculatePossibleMoves() {
-        // Implementation needed to calculate the queen's possible moves
-        System.out.println("Must implement");
-    }
 
-    @Override
-    public boolean isValidMove(Move move) {
-        return false;
-    }
 }

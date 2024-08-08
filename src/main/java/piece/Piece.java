@@ -12,7 +12,6 @@ import java.util.function.Predicate;
 public abstract class Piece {
     protected final int _color; // Color of the piece
     protected boolean _isEverMoved; // Indicates if the piece has ever been moved
-    protected ArrayList<Move> _possibleMoves; // List of possible moves for the piece
     protected char _symbol;
 
     /**
@@ -43,24 +42,9 @@ public abstract class Piece {
         this._isEverMoved = true;
     }
 
-    /**
-     * Gets the list of possible moves for the piece.
-     *
-     * @return an ArrayList of Move objects representing the possible moves
-     */
-    public ArrayList<Move> getPossibleMoves() {
-        return _possibleMoves;
-    }
 
-    public abstract Predicate<Move> validMove(int end);
+    public abstract Predicate<Move> validMove();
 
-    /**
-     * Calculates the possible moves for the piece.
-     * This method should be implemented by subclasses to define the specific movement logic for each type of piece.
-     */
-    public abstract void calculatePossibleMoves();
-
-    public abstract boolean isValidMove(Move move);
 
     @Override
     public String toString() {

@@ -52,11 +52,6 @@ public class Game {
         // Implement game start logic here
     }
 
-    public List<Move> filterMove(Predicate<Move> p){
-        List<Move> np = new ArrayList<>();
-        return np.stream().filter(p).collect(Collectors.toList());
-    }
-
     /**
      * Checks if the current state of the game is checkmate.
      *
@@ -75,20 +70,19 @@ public class Game {
         // Implement move validation logic here
         int row = move.getStartPosition().getSecond() - 1;
         int col = (move.getStartPosition().getFirst() - 'a');
-
-        if (_chessboard.getPiece(row * 8 + col).isValidMove(move)){
+        boolean validMove = getPiece(row,col).validMove().test(move);
+        if (validMove){
                 _chessboardBackup.movePiece(move);
                 if (!isPlayerInCheck()){
+                    _chessboard.getPiece(row * 8 + col).setPieceMoved();
                     _chessboard.movePiece(move);
                     _chessboard.printBoard();
-                    return true;
                 }
                 else{
                     _chessboardBackup.undoLastMove(move, _chessboard.getPiece(row * 8 + col));
-                    return false;
                 }
         }
-        return false;
+        return validMove;
     }
 
     private boolean isPlayerInCheck(){

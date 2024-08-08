@@ -23,21 +23,8 @@ public class King extends Piece {
     }
 
     @Override
-    public Predicate<Move> validMove(int end) {
+    public Predicate<Move> validMove() {
         return null;
     }
 
-    /**
-     * Calculates the possible moves for the king.
-     */
-    @Override
-    public void calculatePossibleMoves() {
-        // Implementation needed for calculating the bishop's moves
-        System.out.println("Must implement");
-    }
-
-    @Override
-    public boolean isValidMove(Move move) {
-        return false;
-    }
 }
