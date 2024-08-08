@@ -4,8 +4,6 @@ import utils.*;
 import piece.*;
 
 import java.util.ArrayList;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 import static utils.Constant.Pieces.Color.*;
 
@@ -35,18 +33,18 @@ public class Board {
      * Initializes the chessboard with the starting positions of the chess pieces.
      */
     private void initChessBoard() {
-        // White Pieces
-        _chessboard.add(new Tower(WHITE));
-        _chessboard.add(new Knight(WHITE));
-        _chessboard.add(new Bishop(WHITE));
-        _chessboard.add( new Queen(WHITE));
-        _chessboard.add(new King(WHITE));
-        _chessboard.add( new Bishop(WHITE));
-        _chessboard.add(new Knight(WHITE));
-        _chessboard.add(new Tower(WHITE));
+        // BLACK Pieces
+        _chessboard.add(new Tower(BLACK));
+        _chessboard.add(new Knight(BLACK));
+        _chessboard.add(new Bishop(BLACK));
+        _chessboard.add( new Queen(BLACK));
+        _chessboard.add(new King(BLACK));
+        _chessboard.add( new Bishop(BLACK));
+        _chessboard.add(new Knight(BLACK));
+        _chessboard.add(new Tower(BLACK));
 
         for (int i = 8; i < 16; i++) {
-            _chessboard.add(new Pawn(WHITE));
+            _chessboard.add(new Pawn(BLACK));
         }
 
         // Blank cell
@@ -54,22 +52,17 @@ public class Board {
             _chessboard.add(new Free(BLANK));
         }
         for (int i = 48; i < 56; i++) {
-            _chessboard.add(new Pawn(BLACK));
+            _chessboard.add(new Pawn(WHITE));
         }
-        // Black Pieces
-        _chessboard.add( new Tower(BLACK));
-        _chessboard.add( new Knight(BLACK));
-        _chessboard.add( new Bishop(BLACK));
-        _chessboard.add( new Queen(BLACK));
-        _chessboard.add( new King(BLACK));
-        _chessboard.add( new Bishop(BLACK));
-        _chessboard.add( new Knight(BLACK));
-        _chessboard.add( new Tower(BLACK));
-
-
-
-
-
+        // WHITE Pieces
+        _chessboard.add( new Tower(WHITE));
+        _chessboard.add( new Knight(WHITE));
+        _chessboard.add( new Bishop(WHITE));
+        _chessboard.add( new Queen(WHITE));
+        _chessboard.add( new King(WHITE));
+        _chessboard.add( new Bishop(WHITE));
+        _chessboard.add( new Knight(WHITE));
+        _chessboard.add( new Tower(WHITE));
     }
 
     /**

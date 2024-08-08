@@ -176,6 +176,21 @@ public class Controller implements Initializable {
         //aggiungere il checkmate
     }
 
+    //DA SISTEMARE
+    public void removePiece(int x, int y) {
+        // Ottieni il nodo alla posizione specificata
+        Node node = getNodeByRowColumnIndex(y, x, myGrid);
+
+        if (node instanceof StackPane) {
+            StackPane stackPane = (StackPane) node;
+
+            // Rimuovi tutti i figli del StackPane (immagine del pezzo)
+            stackPane.getChildren().clear();
+        }
+    }
+
+
+
     /**
      * NON HO TROVATO L UTILITA DEL METODO - GENERA SOLO ERRORE
      * @param row

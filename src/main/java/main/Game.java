@@ -3,13 +3,7 @@ package main;
 import piece.*;
 import player.Human;
 import player.Player;
-import utils.FileHelper;
 import utils.Move;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 import static utils.Constant.Pieces.Color.*;
 
@@ -17,6 +11,7 @@ import static utils.Constant.Pieces.Color.*;
  * Manages the game of chess, including player turns and game state.
  */
 public class Game {
+    private final Controller _controller;
     private final Board _chessboard;
     private final Board _chessboardBackup;
     private final Player _player1;
@@ -27,12 +22,13 @@ public class Game {
     /**
      * Constructs a new Game with an initialized chessboard and two players.
      */
-    public Game() {
+    public Game(Controller controller) {
         this._chessboard = new Board();
         _chessboard.printBoard();
         this._chessboardBackup = new Board();
         this._player1 = new Human("Player1");
         this._player2 = new Human("Player2");
+        this._controller = controller;
         this._turn = true; // Start with player 1's turn
         this._round = 0;
     }
@@ -67,19 +63,39 @@ public class Game {
     }
 
     public boolean isInputMoveValid(Move move) {
-        // Implement move validation logic here
-        int row = move.getStartPosition().getSecond() - 1;
-        int col = (move.getStartPosition().getFirst() - 'a');
-        boolean validMove = getPiece(row,col).validMove().test(move);
+        int rowCP = move.getStartPosition().getSecond() - 1;
+        int colCP = (move.getStartPosition().getFirst() - 'a');
+        int indexCP = rowCP * 8 + colCP;
+        int colorPieceCP = _chessboard.getPiece(indexCP).getColor();
+
+        int rowCA = move.getEndPosition().getSecond() - 1;
+        int colCA = (move.getEndPosition().getFirst() - 'a');
+        int indexCA = rowCA * 8 + colCA;
+        int colorPieceCA = _chessboard.getPiece(indexCA).getColor();
+
+        // Se stiamo muovendo un pezzo sopra un nostro pezzo
+        // Non servono tutti i controlli
+        // Meno calcoli
+        if (colorPieceCP == colorPieceCA) {
+            return false;
+        }
+
+        boolean validMove = getPiece(rowCP,colCP).validMove().test(move);
+
         if (validMove){
                 _chessboardBackup.movePiece(move);
                 if (!isPlayerInCheck()){
-                    _chessboard.getPiece(row * 8 + col).setPieceMoved();
+                    _chessboard.getPiece(indexCP).setPieceMoved();
+
+                    // Inviare al Controller il segnale di eliminare il pezzo a posizione ca
+                    if (colorPieceCA != BLANK && colorPieceCP != colCA){
+                        _controller.removePiece(rowCA, colCA);
+                    }
                     _chessboard.movePiece(move);
                     _chessboard.printBoard();
                 }
                 else{
-                    _chessboardBackup.undoLastMove(move, _chessboard.getPiece(row * 8 + col));
+                    _chessboardBackup.undoLastMove(move, _chessboard.getPiece(rowCP * 8 + colCP));
                 }
         }
         return validMove;

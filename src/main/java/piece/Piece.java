@@ -35,6 +35,10 @@ public abstract class Piece {
         return this._isEverMoved;
     }
 
+    public int getColor() {
+        return this._color;
+    }
+
     /**
      * Marks the piece as having been moved.
      */

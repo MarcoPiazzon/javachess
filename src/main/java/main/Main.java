@@ -41,7 +41,7 @@ public class Main extends Application {
 
         // Esegui del codice dopo l'avvio dell'applicazione
         Platform.runLater(() -> {
-            Game game = new Game();
+            Game game = new Game(myControllerHandle);
             game.startGame();
             myControllerHandle.setGame(game);
         });
