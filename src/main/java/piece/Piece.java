@@ -3,6 +3,7 @@ package piece;
 import utils.Move;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 /**
  * Abstract class representing a chess piece.
@@ -50,6 +51,8 @@ public abstract class Piece {
     public ArrayList<Move> getPossibleMoves() {
         return _possibleMoves;
     }
+
+    public abstract Predicate<Move> validMove(int end);
 
     /**
      * Calculates the possible moves for the piece.

@@ -2,6 +2,8 @@ package piece;
 
 import utils.Move;
 
+import java.util.function.Predicate;
+
 import static utils.Constant.Pieces.Symbol.BLANK_CELL;
 
 /**
@@ -18,6 +20,11 @@ public class Free extends Piece {
     public Free(int color) {
         super(color); // Call the constructor of the superclass (Piece)
         _symbol = BLANK_CELL;
+    }
+
+    @Override
+    public Predicate<Move> validMove(int end) {
+        return null;
     }
 
     /**

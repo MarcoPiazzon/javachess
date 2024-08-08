@@ -2,6 +2,8 @@ package piece;
 
 import utils.Move;
 
+import java.util.function.Predicate;
+
 import static utils.Constant.Pieces.Symbol.PAWN_SYMBOL;
 
 /**
@@ -18,6 +20,11 @@ public class Pawn extends Piece {
     public Pawn(int color) {
         super(color); // Call the constructor of the superclass (Piece) to initialize color
         _symbol = PAWN_SYMBOL;
+    }
+
+    @Override
+    public Predicate<Move> validMove(int end) {
+        return m -> Math.abs(m.getStartPosition().getSecond() - m.getEndPosition().getSecond()) == 0 ;
     }
 
     /**

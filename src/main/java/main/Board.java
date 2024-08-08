@@ -3,13 +3,17 @@ package main;
 import utils.*;
 import piece.*;
 
+import java.util.ArrayList;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
 import static utils.Constant.Pieces.Color.*;
 
 /**
  * Represents a chessboard with methods to initialize and manage the board state.
  */
 public class Board {
-    private final Piece[] _chessboard = new Piece[64];
+    private final ArrayList<Piece> _chessboard = new ArrayList<>();
 
     /**
      * Constructs a new Board and initializes the chessboard.
@@ -19,12 +23,12 @@ public class Board {
     }
 
     public Piece getPiece(int index) {
-        return _chessboard[index];
+        return _chessboard.get(index);
     }
 
     public char getPieceChar(int index) {
         // System.out.println(_chessboard[index].getSymbol());
-        return _chessboard[index].getSymbol();
+        return _chessboard.get(index).getSymbol();
     }
 
     /**
@@ -32,37 +36,40 @@ public class Board {
      */
     private void initChessBoard() {
         // White Pieces
-        _chessboard[0] = new Tower(WHITE);
-        _chessboard[1] = new Knight(WHITE);
-        _chessboard[2] = new Bishop(WHITE);
-        _chessboard[3] = new Queen(WHITE);
-        _chessboard[4] = new King(WHITE);
-        _chessboard[5] = new Bishop(WHITE);
-        _chessboard[6] = new Knight(WHITE);
-        _chessboard[7] = new Tower(WHITE);
+        _chessboard.add(new Tower(WHITE));
+        _chessboard.add(new Knight(WHITE));
+        _chessboard.add(new Bishop(WHITE));
+        _chessboard.add( new Queen(WHITE));
+        _chessboard.add(new King(WHITE));
+        _chessboard.add( new Bishop(WHITE));
+        _chessboard.add(new Knight(WHITE));
+        _chessboard.add(new Tower(WHITE));
 
         for (int i = 8; i < 16; i++) {
-            _chessboard[i] = new Pawn(WHITE);
-        }
-
-        // Black Pieces
-        _chessboard[56] = new Tower(BLACK);
-        _chessboard[57] = new Knight(BLACK);
-        _chessboard[58] = new Bishop(BLACK);
-        _chessboard[59] = new Queen(BLACK);
-        _chessboard[60] = new King(BLACK);
-        _chessboard[61] = new Bishop(BLACK);
-        _chessboard[62] = new Knight(BLACK);
-        _chessboard[63] = new Tower(BLACK);
-
-        for (int i = 48; i < 56; i++) {
-            _chessboard[i] = new Pawn(BLACK);
+            _chessboard.add(new Pawn(WHITE));
         }
 
         // Blank cell
         for (int i = 16; i < 48; i++) {
-            _chessboard[i] = new Free(BLANK);
+            _chessboard.add(new Free(BLANK));
         }
+        for (int i = 48; i < 56; i++) {
+            _chessboard.add(new Pawn(BLACK));
+        }
+        // Black Pieces
+        _chessboard.add( new Tower(BLACK));
+        _chessboard.add( new Knight(BLACK));
+        _chessboard.add( new Bishop(BLACK));
+        _chessboard.add( new Queen(BLACK));
+        _chessboard.add( new King(BLACK));
+        _chessboard.add( new Bishop(BLACK));
+        _chessboard.add( new Knight(BLACK));
+        _chessboard.add( new Tower(BLACK));
+
+
+
+
+
     }
 
     /**
@@ -87,8 +94,8 @@ public class Board {
         int rowCA = move.getEndPosition().getSecond() - 1;
         int colCA = move.getEndPosition().getFirst() - 'a';
         System.out.println(rowCP + " " + colCP + " " + rowCA + " " + colCA);
-        _chessboard[rowCA * 8 + colCA] = _chessboard[rowCP * 8 + colCP];
-        _chessboard[rowCP * 8 + colCP] = new Free(BLANK);
+        _chessboard.set(rowCA * 8 + colCA, _chessboard.get(rowCP * 8 + colCP));
+        _chessboard.set(rowCP * 8 + colCP, new Free(BLANK));
     }
 
     public void undoLastMove(Move move, Piece pieceCA) {
@@ -101,7 +108,7 @@ public class Board {
     public void printBoard() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                System.out.print(_chessboard[i * 8 + j].getSymbol() + " ");
+                System.out.print(_chessboard.get(i * 8 + j).getSymbol() + " ");
             }
             System.out.println();
         }
@@ -111,7 +118,7 @@ public class Board {
         StringBuilder print = new StringBuilder();
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                print.append(_chessboard[i * 8 + j].getSymbol()).append(" ");
+                print.append(_chessboard.get(i * 8 + j).getSymbol()).append(" ");
             }
             print.append("\n");
         }

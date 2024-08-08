@@ -6,6 +6,11 @@ import player.Player;
 import utils.FileHelper;
 import utils.Move;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
 import static utils.Constant.Pieces.Color.*;
 
 /**
@@ -45,6 +50,11 @@ public class Game {
      */
     public void startGame() {
         // Implement game start logic here
+    }
+
+    public List<Move> filterMove(Predicate<Move> p){
+        List<Move> np = new ArrayList<>();
+        return np.stream().filter(p).collect(Collectors.toList());
     }
 
     /**

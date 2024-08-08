@@ -6,10 +6,12 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import piece.Knight;
 import utils.FileHelper;
 import utils.Move;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import static utils.Constant.Pieces.Path.*;
@@ -149,6 +151,12 @@ public class Controller implements Initializable {
             Move move = new Move(startColChar, startRowNum, endColChar, endRowNum);
 
             boolean canMoveHere = _game.isInputMoveValid(move);
+
+            //dovrebbe ritornare le mosse valide
+            List<Move> nl = _game.filterMove(_game.getPiece(startRow,startCol).validMove(1));
+            for(Move m : nl){
+                System.out.println(m.toString());
+            }
 
             if (canMoveHere) {
                 // Set the piece in the new grid cell

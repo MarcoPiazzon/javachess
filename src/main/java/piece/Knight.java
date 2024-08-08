@@ -2,6 +2,8 @@ package piece;
 
 import utils.Move;
 
+import java.util.function.Predicate;
+
 import static utils.Constant.Pieces.Symbol.KNIGHT_SYMBOL;
 
 /**
@@ -18,6 +20,16 @@ public class Knight extends Piece {
     public Knight(int color) {
         super(color); // Call the constructor of the superclass (Piece) to initialize color
         _symbol = KNIGHT_SYMBOL;
+    }
+
+    @Override
+    public Predicate<Move> validMove(int end) {
+        return this::checkSingleMove;
+    }
+
+    //metodo di prova
+    private boolean checkSingleMove(Move m){
+        return m.getEndPosition().getSecond() < 8;
     }
 
     /**
