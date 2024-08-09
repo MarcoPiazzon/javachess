@@ -73,6 +73,24 @@ public class Controller implements Initializable {
     }
 
     /**
+     * Creates a StackPane containing the chess piece image and sets up event handlers.
+     *
+     * @param imgURL the URL of the image to be used for the piece
+     * @return the StackPane containing the image
+     */
+    private StackPane getStackPane(URL imgURL) {
+        Image img = new Image(imgURL.toExternalForm(), PIECE_HEIGHT, PIECE_WIDTH, true, false);
+        StackPane sp = new StackPane();
+        sp.setBackground(new Background(new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                new BackgroundSize(PIECE_HEIGHT, PIECE_WIDTH, false, false, false, false))));
+
+        sp.setOnMouseClicked(this::clickOnCell); // Set click handler
+        sp.setOnMouseDragged(event -> dragged(event, sp)); // Set drag handler
+        sp.setOnMouseReleased(event -> released(event, sp)); // Set release handler
+        return sp;
+    }
+
+    /**
      * Handles mouse clicks on cells of the chessboard.
      * Converts the cell's row and column indices to chess notation and prints the cell identifier.
      *
@@ -89,24 +107,6 @@ public class Controller implements Initializable {
         System.out.println("cella: " + (char)('a' + colIndex) + rowIndex);
 
         //_board.printBoard();
-    }
-
-    /**
-     * Creates a StackPane containing the chess piece image and sets up event handlers.
-     *
-     * @param imgURL the URL of the image to be used for the piece
-     * @return the StackPane containing the image
-     */
-    private StackPane getStackPane(URL imgURL) {
-        Image img = new Image(imgURL.toExternalForm(), PIECE_HEIGHT, PIECE_WIDTH, true, false);
-        StackPane sp = new StackPane();
-        sp.setBackground(new Background(new BackgroundImage(img, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
-                new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, false))));
-
-        sp.setOnMouseClicked(this::clickOnCell); // Set click handler
-        sp.setOnMouseDragged(event -> dragged(event, sp)); // Set drag handler
-        sp.setOnMouseReleased(event -> released(event, sp)); // Set release handler
-        return sp;
     }
 
     /**
@@ -143,13 +143,10 @@ public class Controller implements Initializable {
         gridY = Math.max(0, Math.min(gridY, 7));
 
         char startColChar = (char) ('a' + startCol);
-        int startRowNum = 8 - startRow;
         char endColChar = (char) ('a' + gridX);
-        int endRowNum = 8 - gridY;
 
         if (startCol > -1 && startRow > -1){
-            Move move = new Move(startColChar, startRowNum, endColChar, endRowNum);
-
+            Move move = new Move(startColChar, startRow, endColChar, gridY);
             boolean canMoveHere = _game.isInputMoveValid(move);
 
             if (canMoveHere) {
@@ -176,38 +173,22 @@ public class Controller implements Initializable {
         //aggiungere il checkmate
     }
 
-    //DA SISTEMARE
+    // Metodo per rimuovere lo sfondo del pezzo alla posizione (x, y)
     public void removePiece(int x, int y) {
-        // Ottieni il nodo alla posizione specificata
-        Node node = getNodeByRowColumnIndex(y, x, myGrid);
+        // Ottieni tutti i figli della griglia
+        List<Node> children = myGrid.getChildren();
 
-        if (node instanceof StackPane) {
-            StackPane stackPane = (StackPane) node;
-
-            // Rimuovi tutti i figli del StackPane (immagine del pezzo)
-            stackPane.getChildren().clear();
+        // Itera su tutti i nodi della griglia per trovare quello alla posizione (x, y)
+        for (Node node : children) {
+            // Ottieni la colonna e la riga del nodo corrente
+            Integer colIndex = GridPane.getColumnIndex(node);
+            Integer rowIndex = GridPane.getRowIndex(node);
+            // Se il nodo è alla posizione specificata (x, y) ed è uno StackPane
+            if (colIndex != null && rowIndex != null && colIndex == y && rowIndex == x && node instanceof StackPane sp) {
+                // Rimuovi il background del StackPane
+                sp.setBackground(null);
+                break; // Esci dal ciclo dopo aver trovato e modificato il nodo
+            }
         }
     }
-
-
-
-    /**
-     * NON HO TROVATO L UTILITA DEL METODO - GENERA SOLO ERRORE
-     * @param row
-     * @param column
-     * @param gridPane
-     * @return
-     */
-    public static Node getNodeByRowColumnIndex(final int row, int column, GridPane gridPane) {
-        return gridPane.getChildren().stream()
-                .filter(node -> {
-                    Integer nodeRow = GridPane.getRowIndex(node);
-                    Integer nodeColumn = GridPane.getColumnIndex(node);
-                    return nodeRow != null && nodeRow == row && nodeColumn != null && nodeColumn == column;
-                })
-                .findFirst()
-                .orElse(null);
-    }
-
-
 }

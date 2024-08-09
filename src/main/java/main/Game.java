@@ -34,11 +34,11 @@ public class Game {
     }
 
     public Piece getPiece(int row, int col) {
-        return _chessboard.getPiece(row * 8 + col);
+        return _chessboard.getPiece(row, col);
     }
 
     public char getPieceChar(int row, int col) {
-        return _chessboard.getPieceChar(row * 8 + col);
+        return _chessboard.getPieceChar(row, col);
     }
 
     /**
@@ -63,15 +63,14 @@ public class Game {
     }
 
     public boolean isInputMoveValid(Move move) {
-        int rowCP = move.getStartPosition().getSecond() - 1;
+        int rowCP = move.getStartPosition().getSecond();
         int colCP = (move.getStartPosition().getFirst() - 'a');
-        int indexCP = rowCP * 8 + colCP;
-        int colorPieceCP = _chessboard.getPiece(indexCP).getColor();
+        int colorPieceCP = _chessboard.getPiece(rowCP, colCP).getColor();
 
-        int rowCA = move.getEndPosition().getSecond() - 1;
+        int rowCA = move.getEndPosition().getSecond();
         int colCA = (move.getEndPosition().getFirst() - 'a');
-        int indexCA = rowCA * 8 + colCA;
-        int colorPieceCA = _chessboard.getPiece(indexCA).getColor();
+
+        int colorPieceCA = _chessboard.getPiece(rowCA, colCA).getColor();
 
         // Se stiamo muovendo un pezzo sopra un nostro pezzo
         // Non servono tutti i controlli
@@ -85,17 +84,17 @@ public class Game {
         if (validMove){
                 _chessboardBackup.movePiece(move);
                 if (!isPlayerInCheck()){
-                    _chessboard.getPiece(indexCP).setPieceMoved();
+                    _chessboard.getPiece(rowCP, colCP).setPieceMoved();
 
                     // Inviare al Controller il segnale di eliminare il pezzo a posizione ca
-                    if (colorPieceCA != BLANK && colorPieceCP != colCA){
+                    if (colorPieceCA != BLANK){
                         _controller.removePiece(rowCA, colCA);
                     }
                     _chessboard.movePiece(move);
                     _chessboard.printBoard();
                 }
                 else{
-                    _chessboardBackup.undoLastMove(move, _chessboard.getPiece(rowCP * 8 + colCP));
+                    _chessboardBackup.undoLastMove(move, _chessboard.getPiece(rowCP, colCP));
                 }
         }
         return validMove;

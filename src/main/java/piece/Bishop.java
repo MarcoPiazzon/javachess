@@ -24,7 +24,11 @@ public class Bishop extends Piece {
 
     @Override
     public Predicate<Move> validMove() {
-        return null;
+        return this::checkSingleMove;
+    }
+
+    private boolean checkSingleMove(Move m){
+        return true;
     }
 
 }

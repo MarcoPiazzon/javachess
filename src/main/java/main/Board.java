@@ -11,7 +11,7 @@ import static utils.Constant.Pieces.Color.*;
  * Represents a chessboard with methods to initialize and manage the board state.
  */
 public class Board {
-    private final ArrayList<Piece> _chessboard = new ArrayList<>();
+    private final Piece[][] _chessboard = new Piece[8][8];
 
     /**
      * Constructs a new Board and initializes the chessboard.
@@ -20,49 +20,49 @@ public class Board {
         initChessBoard();
     }
 
-    public Piece getPiece(int index) {
-        return _chessboard.get(index);
+    public Piece getPiece(int row, int col) {
+        return _chessboard[row][col];
     }
 
-    public char getPieceChar(int index) {
+    public char getPieceChar(int row, int col) {
         // System.out.println(_chessboard[index].getSymbol());
-        return _chessboard.get(index).getSymbol();
+        return _chessboard[row][col].getSymbol();
     }
 
     /**
      * Initializes the chessboard with the starting positions of the chess pieces.
      */
     private void initChessBoard() {
-        // BLACK Pieces
-        _chessboard.add(new Tower(BLACK));
-        _chessboard.add(new Knight(BLACK));
-        _chessboard.add(new Bishop(BLACK));
-        _chessboard.add( new Queen(BLACK));
-        _chessboard.add(new King(BLACK));
-        _chessboard.add( new Bishop(BLACK));
-        _chessboard.add(new Knight(BLACK));
-        _chessboard.add(new Tower(BLACK));
-
-        for (int i = 8; i < 16; i++) {
-            _chessboard.add(new Pawn(BLACK));
-        }
-
-        // Blank cell
-        for (int i = 16; i < 48; i++) {
-            _chessboard.add(new Free(BLANK));
-        }
-        for (int i = 48; i < 56; i++) {
-            _chessboard.add(new Pawn(WHITE));
-        }
         // WHITE Pieces
-        _chessboard.add( new Tower(WHITE));
-        _chessboard.add( new Knight(WHITE));
-        _chessboard.add( new Bishop(WHITE));
-        _chessboard.add( new Queen(WHITE));
-        _chessboard.add( new King(WHITE));
-        _chessboard.add( new Bishop(WHITE));
-        _chessboard.add( new Knight(WHITE));
-        _chessboard.add( new Tower(WHITE));
+        _chessboard[0][0] = new Tower(BLACK);
+        _chessboard[0][1] = new Knight(BLACK);
+        _chessboard[0][2] = new Bishop(BLACK);
+        _chessboard[0][3] = new Queen(BLACK);
+        _chessboard[0][4] = new King(BLACK);
+        _chessboard[0][5] = new Bishop(BLACK);
+        _chessboard[0][6] =  new Knight(BLACK);
+        _chessboard[0][7] = new Tower(BLACK);
+
+        // BLACK Pieces
+        _chessboard[7][0] = new Tower(WHITE);
+        _chessboard[7][1] = new Knight(WHITE);
+        _chessboard[7][2] = new Bishop(WHITE);
+        _chessboard[7][3] = new Queen(WHITE);
+        _chessboard[7][4] = new King(WHITE);
+        _chessboard[7][5] = new Bishop(WHITE);
+        _chessboard[7][6] =  new Knight(WHITE);
+        _chessboard[7][7] = new Tower(WHITE);
+
+        for (int i = 0; i < 8; i++) {
+            _chessboard[1][i] = new Pawn(BLACK);
+            _chessboard[6][i] = new Pawn(WHITE);
+        }
+
+        for (int i = 2; i < 6; i++) {
+            for (int j = 0; j < 8; j++) {
+                _chessboard[i][j] = new Free(BLANK);
+            }
+        }
     }
 
     /**
@@ -82,13 +82,13 @@ public class Board {
          */
 
         // Valori di partenza CP e valori di arrivo CA
-        int rowCP = move.getStartPosition().getSecond() - 1;
+        int rowCP = move.getStartPosition().getSecond();
         int colCP = move.getStartPosition().getFirst() - 'a';
-        int rowCA = move.getEndPosition().getSecond() - 1;
+        int rowCA = move.getEndPosition().getSecond();
         int colCA = move.getEndPosition().getFirst() - 'a';
-        System.out.println(rowCP + " " + colCP + " " + rowCA + " " + colCA);
-        _chessboard.set(rowCA * 8 + colCA, _chessboard.get(rowCP * 8 + colCP));
-        _chessboard.set(rowCP * 8 + colCP, new Free(BLANK));
+
+        _chessboard[rowCA][colCA] = _chessboard[rowCP][colCP];
+        _chessboard[rowCP][colCP] = new Free(BLANK);
     }
 
     public void undoLastMove(Move move, Piece pieceCA) {
@@ -101,22 +101,10 @@ public class Board {
     public void printBoard() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                System.out.print(_chessboard.get(i * 8 + j).getSymbol() + " ");
+                System.out.print(_chessboard[i][j].getSymbol() + " ");
             }
             System.out.println();
         }
-    }
-
-    public StringBuilder getPrintBoard() {
-        StringBuilder print = new StringBuilder();
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                print.append(_chessboard.get(i * 8 + j).getSymbol()).append(" ");
-            }
-            print.append("\n");
-        }
-
-        return print;
     }
 }
 
