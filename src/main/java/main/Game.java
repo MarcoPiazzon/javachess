@@ -88,7 +88,7 @@ public class Game {
 
                     // Inviare al Controller il segnale di eliminare il pezzo a posizione ca
                     if (colorPieceCA != BLANK){
-                        _controller.removePiece(rowCA, colCA);
+                        _controller.removePiece(rowCP, colCP, rowCA, colCA);
                     }
                     _chessboard.movePiece(move);
                     _chessboard.printBoard();

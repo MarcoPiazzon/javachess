@@ -151,8 +151,8 @@ public class Controller implements Initializable {
 
             if (canMoveHere) {
                 // Set the piece in the new grid cell
-                myGrid.setColumnIndex((Node) p, gridX);
-                myGrid.setRowIndex((Node) p, gridY);
+                GridPane.setColumnIndex((Node) p, gridX);
+                GridPane.setRowIndex((Node) p, gridY);
             } else{
                 String piece = "Il pezzo era un " + _game.getPieceChar(startRow, startCol);
                 _fileHelper.saveToFile(move.toString() + piece);
@@ -174,21 +174,44 @@ public class Controller implements Initializable {
     }
 
     // Metodo per rimuovere lo sfondo del pezzo alla posizione (x, y)
-    public void removePiece(int x, int y) {
+    public void removePiece(int rowCP, int colCP, int rowCA, int colCA) {
         // Ottieni tutti i figli della griglia
         List<Node> children = myGrid.getChildren();
-
+        Node cp = getNodeByRowColumnIndex(rowCP, colCP, myGrid);
+        Node ca = getNodeByRowColumnIndex(rowCA, colCA, myGrid);
         // Itera su tutti i nodi della griglia per trovare quello alla posizione (x, y)
-        for (Node node : children) {
+
+        myGrid.getChildren().remove(ca);
+        //myGrid.getChildren().add(rowCA * 8 + colCA, cp);
+
+        /*for (Node node : children) {
             // Ottieni la colonna e la riga del nodo corrente
             Integer colIndex = GridPane.getColumnIndex(node);
             Integer rowIndex = GridPane.getRowIndex(node);
             // Se il nodo è alla posizione specificata (x, y) ed è uno StackPane
-            if (colIndex != null && rowIndex != null && colIndex == y && rowIndex == x && node instanceof StackPane sp) {
+            if (colIndex != null && rowIndex != null && colIndex == colCA && rowIndex == rowCA && node instanceof StackPane sp) {
                 // Rimuovi il background del StackPane
-                sp.setBackground(null);
+                node = cp;
                 break; // Esci dal ciclo dopo aver trovato e modificato il nodo
             }
-        }
+        }*/
+    }
+
+    /**
+     * NON HO TROVATO L UTILITA DEL METODO - GENERA SOLO ERRORE
+     * @param row
+     * @param column
+     * @param gridPane
+     * @return
+     */
+    public static Node getNodeByRowColumnIndex(final int row, int column, GridPane gridPane) {
+        return gridPane.getChildren().stream()
+                .filter(node -> {
+                    Integer nodeRow = GridPane.getRowIndex(node);
+                    Integer nodeColumn = GridPane.getColumnIndex(node);
+                    return nodeRow != null && nodeRow == row && nodeColumn != null && nodeColumn == column;
+                })
+                .findFirst()
+                .orElse(null);
     }
 }
