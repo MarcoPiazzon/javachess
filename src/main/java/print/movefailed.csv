@@ -355,3 +355,6 @@ Pair [_col=e, _row=1] Pair [_col=e, _row=2]Il pezzo era un
 Pair [_col=g, _row=0] Pair [_col=f, _row=0]Il pezzo era un ♞
 Pair [_col=g, _row=1] Pair [_col=b, _row=1]Il pezzo era un ♟
 Pair [_col=b, _row=2] Pair [_col=c, _row=2]Il pezzo era un  
+Pair [_col=d, _row=0] Pair [_col=e, _row=1]Il pezzo era un ♛
+Pair [_col=e, _row=0] Pair [_col=e, _row=1]Il pezzo era un ♚
+Pair [_col=e, _row=1] Pair [_col=e, _row=1]Il pezzo era un ♟

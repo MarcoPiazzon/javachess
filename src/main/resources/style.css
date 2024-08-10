@@ -1,0 +1,4 @@
+#myGrid {
+    -fx-background-image:url("images/bg.png");
+    -fx-background-size: 100% 100%;
+}
