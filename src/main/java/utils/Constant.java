@@ -15,9 +15,10 @@ public class Constant {
          */
         public static class Color{
             public static final int WHITE = 1;
-            public static final int BLACK = 2;
-            public static final int BLANK = 3;
+            public static final int BLACK = -1;
+            public static final int BLANK = 0;
         }
+
 
         public static class Symbol{
             public static final char BISHOP_SYMBOL = '♝';

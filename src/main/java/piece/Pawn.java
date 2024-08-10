@@ -28,8 +28,14 @@ public class Pawn extends Piece {
     }
 
     private boolean checkSingleMove(Move m){
-        //return Math.abs(m.getStartPosition().getSecond() - m.getEndPosition().getSecond()) == 1 || (Math.abs(m.getStartPosition().getSecond() - m.getEndPosition().getSecond()) == 2 && !_isEverMoved);
-        return true;
+        //check distance
+        int diff_y = m.getStartPosition().getSecond() - m.getEndPosition().getSecond();
+        int diff_x = m.getStartPosition().getFirst() - m.getEndPosition().getFirst();
+        if(Math.abs(diff_y) > 2 || Math.abs(diff_x) > 1)
+            return false;
+
+        //check move by Color
+        return (diff_y == _color || (diff_y == 2*_color && !_isEverMoved));
     }
 
 }

@@ -62,6 +62,10 @@ public class Game {
 
     }
 
+    private boolean checkBoard(Piece p){
+        return false;
+    }
+
     public boolean isInputMoveValid(Move move) {
         int rowCP = move.getStartPosition().getSecond();
         int colCP = (move.getStartPosition().getFirst() - 'a');
@@ -81,7 +85,7 @@ public class Game {
 
         boolean validMove = getPiece(rowCP,colCP).validMove().test(move);
 
-        if (validMove){
+        if (validMove && checkBoard(getPiece(rowCP,colCP))){
                 _chessboardBackup.movePiece(move);
                 if (!isPlayerInCheck()){
                     _chessboard.getPiece(rowCP, colCP).setPieceMoved();
@@ -103,25 +107,5 @@ public class Game {
     private boolean isPlayerInCheck(){
         // controlla se non é in scacco nella chessboardBackup
         return false;
-    }
-
-    private static Piece getPieceFromPath(String path, int row){
-        String[] parts = path.split("_");
-        String utilPart = parts[1];
-        return switch (utilPart){
-            case "BISHOP" -> new Bishop(getColorFromPos(row));
-            case "KING" -> new King(getColorFromPos(row));
-            case "KNIGHT" -> new Knight(getColorFromPos(row));
-            case "PAWN" -> new Pawn(getColorFromPos(row));
-            case "QUEEN" -> new Queen(getColorFromPos(row));
-            case "TOWER" -> new Tower(getColorFromPos(row));
-            default -> throw new IllegalStateException("Unexpected value: " + utilPart);
-        };
-    }
-
-    private static int getColorFromPos(int row){
-        if (row < 3) return WHITE;
-        else if (row > 6) return BLACK;
-        return BLANK;
     }
 }
